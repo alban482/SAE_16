@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Alternance - Alban BLOISE</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+
+    <header id="header">
+        <nav class="navbar">
+            <h1 class="logo">Portfolio</h1>
+            <ul class="nav-links">
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#entreprise">L'Entreprise</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero">
+        <img src="Moi.jpg" alt="Photo de profil" class="profile-img">
+        <h2>Bonjour, je suis <span class="glitch" data-text="Alban BLOISE">Alban BLOISE</span></h2>
+        <p class="typing-text">Étudiant en BUT réseaux et télécommunications • En alternance à l'Agence Régionale de
+            Santé</p>
+        <a href="#contact" class="btn">Me contacter</a>
+    </section>
+
+    <section id="about" class="section reveal">
+        <h2>Qui suis-je</h2>
+
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="close"></span>
+                    <span class="minimize"></span>
+                    <span class="maximize"></span>
+                </div>
+                <div class="terminal-title">admin@alban-os:~</div>
+            </div>
+            <div class="terminal-body">
+                <p><span class="prompt">alban@ars-network:~$</span> whoami</p>
+                <p class="output">Alban BLOISE - Baccalauréat technologique STI2D (Sciences et Technologie de l'Industrie et du Développement Durable) parcours SIN (Systèmes d'information et numériques), j'aime tout ce qui touche au réseau (infrastructure, gestion des accès internet).
+                    Mon objectif est de devenir Administrateur systèmes et Réseaux.
+                </p>
+
+                <p><span class="prompt">alban@ars-network:~$</span> cat objectifs.txt</p>
+                <p class="output">Actuellement en alternance à l'Agence Régionale de Santé, au sein de la DSI, en tant que technicien SI, mes missions sont d'assurer un support aux utilisateurs sur tout les domaines (Comptes, Machines, déménagement de postes),
+                    gérer le parc informatique ainsi que l'inventaire et assurer les visioconférences.
+                </p>
+
+                <p><span class="prompt">alban@ars-network:~$</span> ping -c 1 motivation</p>
+                <p class="output">64 bytes from motivation: icmp_seq=1 ttl=64 time=0.01 ms<br>Sérieux, motivé et
+                    curieux. 0% packet loss.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="entreprise" class="section reveal">
+        <h2>L'Entreprise (ARS)</h2>
+
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="close"></span>
+                    <span class="minimize"></span>
+                    <span class="maximize"></span>
+                </div>
+                <div class="terminal-title">admin@ars-server:~</div>
+            </div>
+            <div class="terminal-body">
+                <p><span class="prompt">alban@ars-network:~$</span> cat presentation_ars.md</p>
+                <p class="output">L'Agence Régionale de Santé (ARS) est un établissement public chargé de la mise en œuvre de la politique de santé dans la région. Elle intervient dans la prévention, la veille sanitaire et la régulation de l'offre de soins pour répondre aux besoins de la population.</p>
+
+                <p><span class="prompt">alban@ars-network:~$</span> ./show_dsi_role.sh</p>
+                <p class="output">Initialisation du script... [OK]<br>
+                Au sein de l'ARS, la Direction des Systèmes d'Information (DSI) est vitale. Son rôle est de garantir la sécurité des données de santé, de maintenir l'infrastructure réseau en condition opérationnelle et d'accompagner les agents dans leur environnement numérique au quotidien.</p>
+
+                <p><span class="prompt">alban@ars-network:~$</span> nmap -sV environnement_de_travail</p>
+                <p class="output">Starting Nmap...<br>
+                PORT   STATE SERVICE<br>
+                80/tcp open  Support_Utilisateurs<br>
+                443/tcp open Gestion_Postes_Clients<br>
+                22/tcp open  Deploiement_Materiel</p>
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="section reveal">
+        <h2>Compétences</h2>
+        <ul class="skills-list">
+            <li>Environnment Windows Server Active directory</li>
+            <li>Powershell</li>
+            <li>Plateforme de Ticketing</li>
+            <li>Suite Microsoft office 365</li>
+            <li>Réseaux & Télécoms</li>
+            <li>Réparation physique des postes</li>
+            <li>Gestion Inventaire et Parc informatique</li>
+            <li>Rédaction des procédures</li>
+        </ul>
+    </section>
+
+    <section id="projects" class="section reveal">
+        <h2>Missions</h2>
+        <p class="section-subtitle">Cliquez sur une mission pour afficher l'analyse complète</p>
+        <div class="projects-grid">
+
+            <div class="project-card mission-card" onclick="openModal('modal-support')" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                <div class="card-tag">Mission 01</div>
+                <h3>Support aux utilisateurs</h3>
+                <p>Assistance technique de niveau 1 et 2, diagnostic et résolution des incidents pour les agents.</p>
+                <span class="card-cta">► Voir la mission complète</span>
+            </div>
+
+            <div class="project-card mission-card" onclick="openModal('modal-admin')">
+                <div class="card-tag">Mission 02</div>
+                <h3>Administration système</h3>
+                <p>Gestion de l'Active Directory, administration des droits d'accès et maintien en condition opérationnelle.</p>
+                <span class="card-cta">► Voir la mission complète</span>
+            </div>
+
+            <div class="project-card mission-card" onclick="openModal('modal-procedure')">
+                <div class="card-tag">Mission 03</div>
+                <h3>Rédaction de procédures</h3>
+                <p>Création et documentation de procédures techniques et modes opératoires pour la base de connaissances.</p>
+                <span class="card-cta">► Voir la mission complète</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== MODAL MISSION 01 ========== -->
+    <div id="modal-support" class="modal-overlay" onclick="closeModalOutside(event, 'modal-support')">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-support')">✕</button>
+
+            <div class="modal-header">
+                <span class="modal-tag">Mission 01</span>
+                <h2>Support aux utilisateurs</h2>
+                <p class="modal-period">📅 Période : Année 2025–2026 | ARS – DSI</p>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Contexte &amp; Objectifs</h4>
+                    <p>Dans le cadre de mon alternance à l'ARS, j'assure le support technique de niveau 1 et 2 pour l'ensemble des agents. L'objectif est de diagnostiquer rapidement les dysfonctionnements, de résoudre les incidents matériels ou logiciels, et de minimiser l'impact sur la productivité des utilisateurs tout en leur offrant un accompagnement de qualité.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Tâches réalisées</h4>
+                    <ul class="modal-list">
+                        <li>Prise en charge et qualification des tickets d'incidents (Niveau 1)</li>
+                        <li>Diagnostic et résolution de problèmes complexes via prise de main à distance ou sur site (Niveau 2)</li>
+                        <li>Accompagnement et formation des utilisateurs sur les outils numériques</li>
+                        <li>Escalade des incidents critiques vers les équipes de niveau 3 (réseau/infrastructure)</li>
+                        <li>Suivi des tickets jusqu'à leur clôture et validation avec l'utilisateur</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Compétences &amp; AC mobilisés</h4>
+                    <div class="ac-grid">
+                        <div class="ac-badge">RT1 – Administrer les réseaux<br><small>AC11.05 – Identifier les dysfonctionnements du réseau local et savoir les signaler</small></div>
+                        <div class="ac-badge">RT1 – Administrer les réseaux<br><small>AC11.04 – Rôles et principes des systèmes d'exploitation</small></div>
+                        <div class="ac-badge">RT2 – Connecter les entreprises<br><small>AC12.05 – Communiquer avec un tiers et adapter son discours à son interlocuteur</small></div>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Traces &amp; Preuves</h4>
+                    <ul class="modal-list">
+                        <li>Capture d'écran du ticket d'intervention (GLPI) :</li>
+                    </ul>
+                    <div class="modal-image-container">
+                        <img src="ticket_glpi.png" alt="Ticket GLPI" class="modal-trace-img">
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Analyse réflexive</h4>
+                    <div class="terminal-window mini-terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons"><span class="close"></span><span class="minimize"></span><span class="maximize"></span></div>
+                            <div class="terminal-title">autoeval.sh</div>
+                        </div>
+                        <div class="terminal-body">
+                            <p><span class="prompt">alban@ars:~$</span> cat autoeval.txt</p>
+                            <p class="output">Cette mission m'a permis de comprendre l'importance d'une gestion centralisée des incidents. J'ai renforcé mon autonomie dans le diagnostic technique. La principale difficulté a été de gérer la communication avec des utilisateurs parfois stressés par des pannes bloquantes. J'ai appris à vulgariser mon discours et à faire preuve de patience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MODAL MISSION 02 ========== -->
+    <div id="modal-admin" class="modal-overlay" onclick="closeModalOutside(event, 'modal-admin')">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-admin')">✕</button>
+
+            <div class="modal-header">
+                <span class="modal-tag">Mission 02</span>
+                <h2>Administration système</h2>
+                <p class="modal-period">📅 Période : Année 2025–2026 | ARS – DSI</p>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Contexte &amp; Objectifs</h4>
+                    <p>Mon rôle implique une participation active à l'administration des systèmes de l'ARS. L'enjeu est de garantir un environnement système sécurisé, de gérer les habilitations de manière stricte via l'Active Directory, et d'assurer le maintien en condition opérationnelle de l'infrastructure logicielle.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Tâches réalisées</h4>
+                    <ul class="modal-list">
+                        <li>Création, modification et désactivation des comptes utilisateurs dans l'Active Directory</li>
+                        <li>Gestion des groupes de sécurité et attribution des droits d'accès aux ressources partagées</li>
+                        <li>Utilisation de scripts (ex: PowerShell) pour automatiser certaines tâches d'administration</li>
+                        <li>Surveillance de l'état des serveurs et application des politiques de sécurité</li>
+                        <li>Gestion et résolution des anomalies liées aux comptes et aux accès</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Compétences &amp; AC mobilisés</h4>
+                    <div class="ac-grid">
+                        <div class="ac-badge">RT1 – Administrer les réseaux<br><small>AC11.04 – Rôles et principes des systèmes d'exploitation pour l'administration</small></div>
+                        <div class="ac-badge">RT3 – Créer des outils informatiques<br><small>AC23.01 – Automatiser l’administration système avec des scripts</small></div>
+                        <div class="ac-badge">Cyber1 – Administrer un SI sécurisé<br><small>AC24.01 – Connaître et utiliser les bonnes pratiques et recommandations de cybersécurité</small></div>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Traces &amp; Preuves</h4>
+                    <ul class="modal-list">
+                        <li>Captures d'écran de l'administration Active Directory :</li>
+                    </ul>
+                    <div class="modal-image-container">
+                        <img src="TON_IMAGE_MISSION_2.png" alt="Administration AD" class="modal-trace-img">
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Analyse réflexive</h4>
+                    <div class="terminal-window mini-terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons"><span class="close"></span><span class="minimize"></span><span class="maximize"></span></div>
+                            <div class="terminal-title">autoeval.sh</div>
+                        </div>
+                        <div class="terminal-body">
+                            <p><span class="prompt">alban@ars:~$</span> cat autoeval.txt</p>
+                            <p class="output">J'ai développé ma rigueur dans la gestion des droits d'accès. La principale difficulté résidait dans la compréhension de l'arborescence complète de l'AD de l'entreprise. En pratiquant et en automatisant via PowerShell, j'ai gagné en efficacité et réduit les erreurs de saisie.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MODAL MISSION 03 (NOUVELLE) ========== -->
+    <div id="modal-procedure" class="modal-overlay" onclick="closeModalOutside(event, 'modal-procedure')">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-procedure')">✕</button>
+
+            <div class="modal-header">
+                <span class="modal-tag">Mission 03</span>
+                <h2>Rédaction de procédures</h2>
+                <p class="modal-period">📅 Période : Année 2025–2026 | ARS – DSI</p>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Contexte &amp; Objectifs</h4>
+                    <p>Pour assurer la pérennité de l'information et faciliter l'intégration des nouveaux arrivants, j'ai été chargé de rédiger et mettre à jour des procédures techniques et des modes opératoires. L'objectif est d'alimenter la base de connaissances de la DSI pour uniformiser les pratiques de résolution et guider les utilisateurs en autonomie.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Tâches réalisées</h4>
+                    <ul class="modal-list">
+                        <li>Identification des opérations récurrentes manquant de documentation</li>
+                        <li>Tests et reproduction des manipulations étape par étape</li>
+                        <li>Rédaction de documentations claires intégrant des captures d'écran annotées</li>
+                        <li>Validation technique des procédures avec l'équipe DSI</li>
+                        <li>Mise en page et publication sur la plateforme de base de connaissances (Wiki/GLPI)</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Compétences &amp; AC mobilisés</h4>
+                    <div class="ac-grid">
+                        <div class="ac-badge">RT2 – Connecter les entreprises<br><small>AC12.05 – Communiquer avec un collaborateur et adapter son discours</small></div>
+                        <div class="ac-badge">RT3 – Créer des outils informatiques<br><small>AC13.06 – S’intégrer dans un environnement propice au travail collaboratif</small></div>
+                        <div class="ac-badge">RT3 – Créer des outils informatiques<br><small>AC13.01 – Utiliser un système informatique et ses outils (Wiki, Bureautique)</small></div>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Traces &amp; Preuves</h4>
+                    <ul class="modal-list">
+                        <li>Extrait d'une procédure rédigée sur la base de connaissances :</li>
+                    </ul>
+                    <div class="modal-image-container">
+                        <img src="procedure.png" alt="Extrait de procédure" class="modal-trace-img">
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h4><span class="prompt">$</span> Analyse réflexive</h4>
+                    <div class="terminal-window mini-terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons"><span class="close"></span><span class="minimize"></span><span class="maximize"></span></div>
+                            <div class="terminal-title">autoeval.sh</div>
+                        </div>
+                        <div class="terminal-body">
+                            <p><span class="prompt">alban@ars:~$</span> cat autoeval.txt</p>
+                            <p class="output">Cette mission m'a obligé à prendre du recul sur mes propres pratiques techniques pour les expliquer clairement à d'autres. La difficulté principale a été de trouver le juste milieu dans le vocabulaire : ni trop technique, ni trop simpliste. J'ai appris qu'une bonne documentation est indispensable au bon fonctionnement d'un service informatique moderne.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact" class="section reveal">
+        <h2>Contact</h2>
+        <p>Établissons la connexion :</p>
+
+        <div class="contact-icons">
+            <a href="mailto:bloisealban7@gmail.com" title="M'envoyer un email" class="contact-node">
+                <img src="Gmail_icon_(2020).svg" alt="Email" class="icon">
+            </a>
+
+            <a href="https://www.linkedin.com/in/alban-bloise-b7389a389/" target="_blank" rel="noopener noreferrer"
+                title="Mon profil LinkedIn" class="contact-node">
+                <img src="LinkedIn_icon.svg" alt="LinkedIn" class="icon">
+            </a>
+
+            <a href="https://github.com/alban482" target="_blank" rel="noopener noreferrer"
+                title="Mon profil GitHub" class="contact-node">
+                <img src="Octicons-mark-github.svg" alt="GitHub" class="icon">
+            </a>
+        </div>
+    </section>
+    
+    <div class="sys-status">
+        <div class="status-dot"></div>
+        <div class="status-text">
+            <span>SYSTEM: ONLINE</span>
+            <span id="visitor-ip">IP: RECHERCHE...</span>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 - Alban BLOISE | Systèmes & Réseaux</p>
+    </footer>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+
+        function revealOnScroll() {
+            reveals.forEach(section => {
+                const windowHeight = window.innerHeight;
+                const revealTop = section.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    section.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Pour déclencher au chargement
+
+        // Animation du header
+        window.addEventListener('scroll', () => {
+            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // --- MODALS MISSIONS ---
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeModalOutside(event, id) {
+            if (event.target === document.getElementById(id)) {
+                closeModal(id);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(m => {
+                    m.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+
+        // --- SCANNER D'IP VISITEUR ---
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                // Remplace le texte par l'IP trouvée
+                document.getElementById('visitor-ip').textContent = 'IP: ' + data.ip;
+            })
+            .catch(error => {
+                // En cas de bloqueur de pub ou d'erreur réseau
+                document.getElementById('visitor-ip').textContent = 'IP: MASQUÉE';
+            });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+</body>
+
+</html>

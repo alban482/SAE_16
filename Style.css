@@ -1,0 +1,796 @@
+/* =========================================
+   VARIABLES THEME RESEAU
+========================================= */
+:root {
+    --bg-dark: #0a0f1d;        /* Bleu très sombre */
+    --text-light: #e2e8f0;     /* Texte gris clair */
+    --cyan-neon: #00d2ff;      /* Couleur d'accentuation réseau */
+    --card-bg: #131b2f;        /* Fond des cartes */
+}
+
+/* =========================================
+   CUSTOM SCROLLBAR & SELECTION
+========================================= */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+    border-left: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--cyan-neon);
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--cyan-neon);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+}
+
+::selection {
+    background: var(--cyan-neon);
+    color: var(--bg-dark);
+}
+
+/* =========================================
+   RESET & BODY
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    /* Curseur Crosshair */
+    cursor: crosshair;
+    /* Le fond "Grille de réseau" */
+    background-image: 
+        linear-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 210, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px; 
+    line-height: 1.6;
+    overflow-x: hidden; /* Empêche le scroll horizontal accidentel */
+}
+
+/* Typographie "Tech" pour les titres */
+h1, h2, h3 {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--cyan-neon);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Restaurer le pointeur normal sur les éléments cliquables */
+a, button, .btn, .contact-node {
+    cursor: pointer;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    transition: background 0.3s, box-shadow 0.3s, border-bottom 0.3s;
+}
+
+header.scrolled {
+    background: rgba(10, 15, 29, 0.95);
+    border-bottom: 1px solid var(--cyan-neon);
+    box-shadow: 0 5px 20px rgba(0, 210, 255, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    align-items: center;
+}
+
+.logo {
+    color: var(--text-light);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--cyan-neon);
+    text-shadow: 0 0 8px var(--cyan-neon);
+}
+
+/* =========================================
+   HERO
+========================================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 5rem;
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid var(--cyan-neon);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    animation: float 4s ease-in-out infinite;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(0, 210, 255, 0.8);
+}
+
+/* TEXTE ANIME */
+.typing-text {
+    margin-top: 0.5rem;
+    border-right: 2px solid var(--cyan-neon);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3s steps(40), blink 0.7s infinite;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* BOUTON */
+.btn {
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    background: transparent;
+    color: var(--cyan-neon);
+    border: 2px solid var(--cyan-neon);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--cyan-neon);
+    color: var(--bg-dark);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--cyan-neon);
+}
+
+/* EFFET GLITCH SUR LE NOM */
+.glitch {
+    position: relative;
+    display: inline-block;
+    color: var(--cyan-neon);
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-dark);
+    opacity: 0;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 blue;
+}
+
+.glitch:hover::before {
+    opacity: 1;
+    animation: glitch-anim 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+
+.glitch:hover::after {
+    opacity: 1;
+    animation: glitch-anim-2 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+
+/* =========================================
+   SECTIONS GENERALES
+========================================= */
+.section {
+    padding: 5rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.section h2 {
+    margin-bottom: 2rem;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   COMPETENCES (Packets de données)
+========================================= */
+.skills-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+}
+
+.skills-list li {
+    background: var(--card-bg);
+    color: var(--text-light);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    border-left: 4px solid var(--cyan-neon);
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.skills-list li:hover {
+    transform: translateX(5px) scale(1.05);
+    background-color: rgba(0, 210, 255, 0.1);
+}
+
+/* =========================================
+   PROJETS (Dashboards)
+========================================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--cyan-neon);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5), 0 0 15px rgba(0, 210, 255, 0.1);
+    border-color: var(--cyan-neon);
+}
+
+.project-card:hover::before {
+    transform: scaleX(1);
+}
+
+.project-card span {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.85em;
+    color: var(--cyan-neon);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* =========================================
+   CONTACT (Topologie Réseau)
+========================================= */
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px; 
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-icons::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--cyan-neon), var(--cyan-neon) 10px, transparent 10px, transparent 20px);
+    z-index: -1;
+    transform: translateY(-50%);
+    opacity: 0.5;
+}
+
+.contact-node {
+    background-color: var(--bg-dark); 
+    border: 3px solid var(--cyan-neon);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+}
+
+.contact-node .icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.contact-node:hover {
+    transform: translateY(-5px);
+    animation: data-pulse 1.5s infinite;
+    background-color: rgba(0, 210, 255, 0.1);
+}
+
+.contact-node:hover .icon {
+    transform: scale(1.1);
+}
+
+/* --- Correction du logo GitHub trop sombre --- */
+
+/* On cible l'image dont l'attribut 'src' contient le mot "github" */
+.contact-node img[src*="github"] {
+    /* Inverse les couleurs (noir -> blanc) et met la luminosité à fond */
+    filter: invert(1) brightness(2);
+}
+/* =========================================
+   FOOTER
+========================================= */
+footer {
+    background: rgba(10, 15, 29, 0.95);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+/* --- TERMINAL "À PROPOS" --- */
+.terminal-window {
+    background-color: #050a14;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 15px rgba(0, 210, 255, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    overflow: hidden;
+}
+
+.terminal-header {
+    background-color: #1a2035;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.terminal-buttons span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.terminal-buttons .close { background-color: #ff5f56; }
+.terminal-buttons .minimize { background-color: #ffbd2e; }
+.terminal-buttons .maximize { background-color: #27c93f; }
+
+.terminal-title {
+    color: #8a99a8;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 50px; /* Pour centrer le texte malgré les boutons */
+}
+
+.terminal-body {
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1em;
+    color: #a0aec0;
+}
+
+.terminal-body .prompt {
+    color: #27c93f; /* Vert console */
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.terminal-body p {
+    margin-bottom: 10px;
+}
+
+.terminal-body .output {
+    color: var(--text-light);
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+/* Le petit curseur qui clignote à la fin */
+.blinking-cursor {
+    color: var(--cyan-neon);
+    animation: blink 1s step-end infinite;
+}
+
+/* --- WIDGET MONITORING --- */
+.sys-status {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(10, 15, 29, 0.8);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    padding: 10px 15px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8em;
+    color: var(--cyan-neon);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #27c93f;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #27c93f;
+    animation: pulse-green 2s infinite;
+}
+
+.status-text {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(39, 201, 63, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(39, 201, 63, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(39, 201, 63, 0); }
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+@keyframes data-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.6); }
+    70% { box-shadow: 0 0 0 20px rgba(0, 210, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+}
+
+@keyframes glitch-anim {
+    0% { clip-path: inset(10% 0 60% 0); transform: translate(-2px, 2px); }
+    20% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, -2px); }
+    40% { clip-path: inset(30% 0 20% 0); transform: translate(2px, 2px); }
+    60% { clip-path: inset(70% 0 10% 0); transform: translate(2px, -2px); }
+    80% { clip-path: inset(15% 0 80% 0); transform: translate(-2px, 2px); }
+    100% { clip-path: inset(50% 0 30% 0); transform: translate(0); }
+}
+
+@keyframes glitch-anim-2 {
+    0% { clip-path: inset(20% 0 40% 0); transform: translate(2px, -2px); }
+    20% { clip-path: inset(60% 0 15% 0); transform: translate(2px, 2px); }
+    40% { clip-path: inset(10% 0 50% 0); transform: translate(-2px, -2px); }
+    60% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, 2px); }
+    80% { clip-path: inset(35% 0 40% 0); transform: translate(2px, -2px); }
+    100% { clip-path: inset(40% 0 20% 0); transform: translate(0); }
+}
+/* =========================================
+   CARDS MISSIONS - CLICKABLE
+========================================= */
+.section-subtitle {
+    color: rgba(0, 210, 255, 0.6);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+.mission-card {
+    cursor: pointer;
+}
+
+.card-tag {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75em;
+    color: var(--cyan-neon);
+    opacity: 0.7;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.card-cta {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.85em;
+    color: var(--cyan-neon);
+    font-family: 'Courier New', Courier, monospace;
+    transition: letter-spacing 0.3s;
+}
+
+.mission-card:hover .card-cta {
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   MODALS MISSIONS
+========================================= */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 10, 20, 0.92);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 2rem 1rem;
+    cursor: default;
+}
+
+.modal-overlay.active {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    animation: fadeInModal 0.3s ease;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: #0d1525;
+    border: 1px solid rgba(0, 210, 255, 0.4);
+    border-radius: 12px;
+    max-width: 800px;
+    width: 100%;
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 0 0 40px rgba(0, 210, 255, 0.15), 0 20px 60px rgba(0,0,0,0.8);
+    animation: slideUpModal 0.35s ease;
+}
+
+@keyframes slideUpModal {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: transparent;
+    border: 1px solid rgba(0, 210, 255, 0.4);
+    color: var(--cyan-neon);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: rgba(0, 210, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-tag {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75em;
+    color: var(--cyan-neon);
+    opacity: 0.7;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.modal-header h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.modal-period {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85em;
+    color: rgba(226, 232, 240, 0.6);
+    text-align: left;
+}
+
+.modal-section {
+    margin-bottom: 1.8rem;
+}
+
+.modal-section h4 {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--cyan-neon);
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-section h4 .prompt {
+    color: #27c93f;
+    font-weight: bold;
+}
+
+.modal-section p {
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 0.95em;
+    text-align: left;
+}
+
+.modal-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.modal-list li {
+    color: var(--text-light);
+    font-size: 0.9em;
+    padding: 0.4rem 0 0.4rem 1.2rem;
+    border-left: 2px solid rgba(0, 210, 255, 0.3);
+    margin-bottom: 0.5rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.modal-list li::before {
+    content: '▸';
+    position: absolute;
+    left: -0.8rem;
+    color: var(--cyan-neon);
+    font-size: 0.8em;
+}
+
+/* AC badges */
+.ac-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    text-align: left;
+}
+
+.ac-badge {
+    background: rgba(0, 210, 255, 0.07);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    border-radius: 6px;
+    padding: 0.5rem 0.9rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.78em;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+.ac-badge small {
+    display: block;
+    color: var(--cyan-neon);
+    opacity: 0.8;
+    margin-top: 2px;
+}
+
+/* Mini terminal inside modal */
+.mini-terminal {
+    max-width: 100%;
+    font-size: 0.9em;
+}
+
+/* =========================================
+   IMAGES DES TRACES (MODALES)
+========================================= */
+.modal-image-container {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    text-align: center; /* Centre l'image dans la modale */
+    width: 100%; /* S'assure que le conteneur prend toute la largeur dispo */
+}
+
+.modal-trace-img {
+    max-width: 100%; /* Empêche l'image de dépasser en largeur */
+    max-height: 400px; /* Évite qu'une image trop haute prenne tout l'écran */
+    height: auto; /* Conserve les proportions de l'image */
+    border: 1px solid rgba(0, 210, 255, 0.3); /* Bordure style cyberpunk */
+    border-radius: 8px; /* Coins légèrement arrondis */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Ombre douce */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: contain; /* S'assure que toute l'image est visible sans être déformée */
+    display: block; /* Évite les espaces vides sous l'image */
+    margin: 0 auto; /* Centre l'image si elle est plus petite que le conteneur */
+}
+
+.modal-trace-img:hover {
+    transform: scale(1.02); /* Léger zoom au survol */
+    box-shadow: 0 8px 20px rgba(0, 210, 255, 0.2); /* Ombre cyan au survol */
+    border-color: var(--cyan-neon);
+}
